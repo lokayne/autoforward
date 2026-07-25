@@ -1,0 +1,39 @@
+{
+  "name": "Auto Forward Bot",
+  "description": "Telegram bot that auto-forwards posts from a source channel to multiple channels/groups, with filters, blacklist words, and dead-target cleanup.",
+  "keywords": ["telegram", "bot", "forward", "mongodb"],
+  "repository": "https://github.com/YOUR_USERNAME/autoforwardbot",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your Bot Token from @BotFather",
+      "value": "",
+      "required": true
+    },
+    "MONGO_URI": {
+      "description": "Your MongoDB connection string (e.g. from MongoDB Atlas)",
+      "value": "",
+      "required": true
+    },
+    "DB_NAME": {
+      "description": "MongoDB database name to use",
+      "value": "autoforwardbot",
+      "required": false
+    },
+    "OWNER_IDS": {
+      "description": "Comma separated Telegram user IDs who can control the bot, e.g. 123456789,987654321",
+      "value": "",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
