@@ -6,18 +6,13 @@ from handlers.keyboards import back_kb, targets_list_kb, source_blacklist_kb
 
 
 async def pending_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Handles free-text replies for flows started by inline buttons
-    (e.g. 'Add Source' asks for a chat_id). Only fires when something
-    is actually pending; otherwise it's a no-op so normal chatting/commands
-    aren't affected.
-    """
     awaiting = context.user_data.get("awaiting")
     if not awaiting:
         return
 
     text = (update.effective_message.text or "").strip()
     action = awaiting.get("action")
-    context.user_data["awaiting"] = None  # consume it either way
+    context.user_data["awaiting"] = None 
 
     if action == "addsource":
         parts = text.split(maxsplit=1)
