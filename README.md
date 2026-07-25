@@ -68,35 +68,6 @@ export BOT_TOKEN=xxxx MONGO_URI=xxxx OWNER_IDS=123456789
 python main.py
 ```
 
-To keep it running on a VPS, use `pm2`, `systemd`, or `screen`/`tmux`:
-
-```bash
-pm2 start main.py --name autoforwardbot --interpreter python3
-```
-
-## Heroku deployment (CLI — alternative to the button)
-
-```bash
-heroku create your-app-name
-heroku config:set BOT_TOKEN=xxxx MONGO_URI=xxxx OWNER_IDS=123456789
-git push heroku main
-heroku ps:scale worker=1
-```
-
-Uses the included `Procfile` (worker dyno, since this is a polling bot, not a web service).
-
-## Render deployment (dashboard — alternative to the button)
-
-1. Create a new **Background Worker** (not Web Service) on Render.
-2. Connect your repo.
-3. Build command: `pip install -r requirements.txt`
-4. Start command: `python main.py`
-5. Add `BOT_TOKEN`, `MONGO_URI`, `DB_NAME`, `OWNER_IDS` as environment variables in the Render dashboard.
-
-The included `render.yaml` lets Render auto-detect all of this as a Blueprint
-if you use "New + → Blueprint" and point it at your repo instead of manually
-filling the fields above.
-
 ## Basic flow
 
 Two ways to do everything — pick whichever's faster:
