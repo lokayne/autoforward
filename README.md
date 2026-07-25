@@ -7,13 +7,13 @@ dead-target cleanup, and sudo user management.
 ## One-Click Deploy
 
 <p>
-<a href="https://heroku.com/deploy?template=https://github.com/YOUR_USERNAME/autoforwardbot">
+<a href="https://heroku.com/deploy?template=https://github.com/lokayne/autoforwardbot">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku">
 </a>
 </p>
 
 <p>
-<a href="https://render.com/deploy?repo=https://github.com/YOUR_USERNAME/autoforwardbot">
+<a href="https://render.com/deploy?repo=https://github.com/lokayne/autoforwardbot">
   <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
 </a>
 </p>
