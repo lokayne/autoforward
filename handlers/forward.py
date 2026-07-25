@@ -38,13 +38,6 @@ def _hits_blacklist(message, blacklist) -> bool:
 
 
 async def _send_with_retry(bot, source_id, target_id, message, mode):
-    """Copy or forward a single message to a single target, with retry/backoff.
-
-    Flood-wait (RetryAfter) doesn't burn through the retry budget -- Telegram
-    is telling us exactly how long to wait, so we always honor it and try
-    again. Only real failures (timeouts / unexpected errors) count against
-    MAX_RETRIES.
-    """
     attempt = 0
     while attempt < MAX_RETRIES:
         try:
@@ -66,12 +59,12 @@ async def _send_with_retry(bot, source_id, target_id, message, mode):
                 "Flood control: waiting %.1fs to send to %s", e.retry_after, target_id
             )
             await asyncio.sleep(e.retry_after + 1)
-            continue  # doesn't count as an attempt
+            continue
         except TimedOut:
             attempt += 1
             await asyncio.sleep(min(2 * attempt, 20))
         except Forbidden as e:
-            # Bot kicked / no permission -- no point retrying, deactivate target
+            # Bot kicked
             return False, ("forbidden", str(e))
         except BadRequest as e:
             return False, ("badrequest", str(e))
