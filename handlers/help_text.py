@@ -74,5 +74,5 @@ START_TEXT = (
     "I forward posts from a source channel to multiple channels/groups automatically.\n"
     "The bot must be *admin* in both source and target chats.\n\n"
     "Use the buttons below, or any command directly:\n\n"
-    f"{ALL_COMMANDS_TEXT}"
+    #f"{ALL_COMMANDS_TEXT}"
 )
