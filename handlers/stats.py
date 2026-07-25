@@ -17,5 +17,6 @@ async def stats_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"Total targets: {total_targets}\n"
         f"Forwarded: {stats.get('forwarded', 0)}\n"
         f"Failed: {stats.get('failed', 0)}"
+        "Subscribe - @Alcyone_Bots"
     )
     await update.effective_message.reply_text(text, parse_mode="Markdown")
