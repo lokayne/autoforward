@@ -1,8 +1,13 @@
 {
   "name": "Auto Forward Bot",
   "description": "Telegram bot that auto-forwards posts from a source channel to multiple channels/groups, with filters, blacklist words, and dead-target cleanup.",
-  "keywords": ["telegram", "bot", "forward", "mongodb"],
-  "repository": "https://github.com/YOUR_USERNAME/autoforwardbot",
+  "keywords": [
+    "telegram",
+    "bot",
+    "forward",
+    "mongodb"
+  ],
+  "repository": "https://github.com/lokayne/autoforwardbot",
   "env": {
     "BOT_TOKEN": {
       "description": "Your Bot Token from @BotFather",
@@ -29,11 +34,5 @@
     {
       "url": "heroku/python"
     }
-  ],
-  "formation": {
-    "worker": {
-      "quantity": 1,
-      "size": "eco"
-    }
-  }
+  ]
 }
